@@ -20,32 +20,12 @@ Thumbs.db
 node_modules/
 npm-debug.log*
 
-# ─── Private brand & strategy docs (not public) ───
-brand/
-campaigns/
-driven-by-team-brand-summary.md
-Brand-Alignment-Notes.md
-API-Setup-Guide.md
-Product-Outline-and-Episode-Guide.md
-Reddit-Pain-Point-Research-Report.md
-Hiro-fm-Sales-Page-Copy.md
-Episode-1-Outline.md
-Episode-2-Outline.md
-Episode-3-Outline.md
-.env.example
+# ─── Ignore everything by default ───
+/*
 
-# ─── Internal templates (not live pages) ───
-Meta-Ad-Creatives.html
-The-Ownership-Handoff-Tool.html
+# ─── Allow site/ directory (the deployed website) ───
+!site/
+!site/**
 
-# ─── Paid product files (do not make public) ───
-The-Ownership-Handoff-Tool.pdf
-The-Ownership-Map-Tool.pdf
-the-ownership-handoff.pdf
-
-# ─── Build artifacts & working files ───
-creative-output/
-input/
-
-# ─── Large media (add individually when needed on site) ───
-tim-heeter.png
+# ─── Allow git files ───
+!.gitignore
