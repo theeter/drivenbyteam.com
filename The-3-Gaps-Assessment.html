@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 3 Gaps Assessment — A Driven by Team™ Tool</title>
+<style>
+  @page {
+    size: letter;
+    margin: 0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #2D2D2D;
+    background: #FFFFFF;
+    padding: 32px 48px 28px;
+    max-width: 8.5in;
+    height: 11in;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* HEADER */
+  .title {
+    font-size: 30px;
+    font-weight: 800;
+    color: #1B2A4A;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 3px;
+  }
+  .title .tm {
+    font-size: 16px;
+    vertical-align: super;
+    color: #E8872B;
+  }
+  .subtitle {
+    font-size: 12px;
+    font-weight: 700;
+    color: #E8872B;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+  }
+  .divider {
+    height: 3px;
+    background: #E8872B;
+    margin-bottom: 8px;
+  }
+  .tagline {
+    font-size: 11px;
+    font-style: italic;
+    color: #5A5A5A;
+    margin-bottom: 12px;
+  }
+
+  /* INSTRUCTIONS */
+  .instructions {
+    font-size: 10px;
+    color: #5A5A5A;
+    background: #F7F5F2;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .instructions strong {
+    color: #1B2A4A;
+  }
+
+  /* SECTIONS */
+  .section {
+    margin-bottom: 12px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .section-bar {
+    width: 4px;
+    height: 20px;
+    background: #E8872B;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #1B2A4A;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .section-subtitle {
+    font-size: 11px;
+    font-style: italic;
+    color: #5A5A5A;
+    margin-left: 12px;
+    margin-bottom: 6px;
+  }
+
+  /* QUESTION ROWS */
+  .question-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 12px;
+    margin-bottom: 3px;
+    font-size: 10.5px;
+  }
+  .q-num {
+    width: 16px;
+    height: 16px;
+    background: #1B2A4A;
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .q-text {
+    flex: 1;
+    color: #2D2D2D;
+    line-height: 1.3;
+  }
+
+  /* SCORE CIRCLES */
+  .score-circles {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .score-circle {
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid #D0CCC7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7px;
+    font-weight: 600;
+    color: #5A5A5A;
+  }
+
+  /* SECTION TOTAL */
+  .section-total {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-left: 12px;
+    margin-top: 4px;
+    padding-top: 4px;
+    border-top: 1px solid #E0DCD7;
+  }
+  .total-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #1B2A4A;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .total-box {
+    width: 36px;
+    height: 20px;
+    border: 1.5px solid #E8872B;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #E8872B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .total-max {
+    font-size: 9px;
+    color: #5A5A5A;
+  }
+
+  /* RESULTS BOX */
+  .results {
+    border: 2px solid #1B2A4A;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 14px;
+  }
+  .results-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: #1B2A4A;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .result-card {
+    background: #F7F5F2;
+    border-radius: 6px;
+    padding: 8px 10px;
+    text-align: center;
+  }
+  .result-card-title {
+    font-size: 9px;
+    font-weight: 700;
+    color: #E8872B;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .result-score-box {
+    width: 36px;
+    height: 20px;
+    border: 1.5px solid #1B2A4A;
+    border-radius: 4px;
+    margin: 0 auto 4px;
+  }
+  .result-scale {
+    font-size: 7.5px;
+    color: #5A5A5A;
+    line-height: 1.3;
+  }
+
+  .results-key {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  .key-item {
+    font-size: 8px;
+    color: #5A5A5A;
+  }
+  .key-item strong {
+    color: #1B2A4A;
+  }
+
+  .results-insight {
+    font-size: 10px;
+    color: #1B2A4A;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .results-actions {
+    font-size: 9px;
+    color: #5A5A5A;
+    line-height: 1.5;
+  }
+  .results-actions strong {
+    color: #1B2A4A;
+  }
+  .results-actions .action-label {
+    color: #E8872B;
+    font-weight: 700;
+  }
+
+  /* FOOTER */
+  .footer {
+    position: absolute;
+    bottom: 24px;
+    left: 48px;
+    right: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9px;
+    color: #5A5A5A;
+  }
+  .footer-right {
+    font-style: italic;
+    font-weight: 600;
+    color: #1B2A4A;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="title">THE 3 GAPS ASSESSMENT<span class="tm">&trade;</span></div>
+<div class="subtitle">A Driven by Team&trade; Tool</div>
+<div class="divider"></div>
+<div class="tagline">Hold them capable, not accountable. &nbsp;|&nbsp; Find out exactly where your team is stuck.</div>
+
+<!-- INSTRUCTIONS -->
+<div class="instructions">
+  <strong>How to use:</strong> Rate each statement 1&ndash;5 based on how true it is for your team right now.
+  <strong>1</strong> = Rarely &nbsp;&nbsp; <strong>2</strong> = Sometimes &nbsp;&nbsp; <strong>3</strong> = About half the time &nbsp;&nbsp; <strong>4</strong> = Usually &nbsp;&nbsp; <strong>5</strong> = Almost always.
+  Circle your score for each. Total each section. Your widest gap is where to start.
+</div>
+
+<!-- SECTION 1: CLARITY GAP -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar"></div>
+    <div class="section-title">The Clarity Gap</div>
+  </div>
+  <div class="section-subtitle">&ldquo;Can your team see what you see?&rdquo;</div>
+
+  <div class="question-row">
+    <div class="q-num">1</div>
+    <div class="q-text">My team knows exactly what success looks like for their role &mdash; not just tasks, but outcomes.</div>
+    <div class="score-circles">
+      <div class="score-circle">1</div>
+      <div class="score-circle">2</div>
+      <div class="score-circle">3</div>
+      <div class="score-circle">4</div>
+      <div class="score-circle">5</div>
+    </div>
+  </div>
+  <div class="question-row">
+    <div class="q-num">2</div>
+    <div class="q-text">When I explain my vision for where the business is going, my team could repeat it back accurately.</div>
+    <div class="score-circles">
+      <div class="score-circle">1</div>
+      <div class="score-circle">2</div>
+      <div class="score-circle">3</div>
+      <div class="score-circle">4</div>
+      <div class="score-circle">5</div>
+    </div>
+  </div>
+  <div class="question-row">
+    <div class="q-num">3</div>
+    <div class="q-text">My team can prioritize without asking me which thing matters most.</div>
+    <div class="score-circles">
+      <div class="score-circle">1</div>
+      <div class="score-circle">2</div>
+      <div class="score-circle">3</div>
+      <div class="score-circle">4</div>
+      <div class="score-circle">5</div>
+    </div>
+  </div>
+  <div class="question-row">
+    <div class="q-num">4</div>
+    <div class="q-text">New projects start with shared clarity on what &ldquo;done&rdquo; looks like &mdash; not just deadlines.</div>
+    <div class="score-circles">
+      <div class="score-circle">1</div>
+      <div class="score-circle">2</div>
+      <div class="score-circle">3</div>
+      <div class="score-circle">4</div>
+      <div class="score-circle">5</div>
+    </div>
+  </div>
+  <div class="question-row">
+    <div class="q-num">5</div>
+    <div class="q-text">If I stepped away for a week, my team would aim at the right targets.</div>
+    <div class="score-circles">
+      <div class="score-circle">1</div>
+      <div class="score-circle">2</div>
+      <div class="score-circle">3</div>
+      <div class="score-circle">4</div>
+      <div class="score-circle">5</div>
+    </div>
+  </div>
+
+  <div class="section-total">
+    <div class="total-label">Clarity Score:</div>
+    <div class="total-box">&nbsp;</div>
+    <div class="total-max">/ 25</div>
+  </div>
+</div>
+
+<!-- SECTION 2: CAPABILITY GAP -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar"></div>
+    <div class="section-title">The Capability Gap</div>
+  </div>
+  <div class="section-subtitle">&ldquo;Does your team have a path they can walk?&rdquo;</div>
+
+  <div class="question-row">
+    <div class="q-num">1</div>
+    <div class="q-text">The work my team does daily matches what I actually hired them to do.</div>
+    <div class="score-circles">
+      <div class="score-circle">1</div>
+      <div class="score-circle">2</div>
+      <div class="score-circle">3</div>
+      <div class="score-circle">4</div>
+      <div class="score-circle">5</div>
+    </div>
+  </div>
+  <div class="question-row">
+    <div class="q-num">2</div>
+    <div class="q-text">My team has the tools, systems, and processes to do their jobs without workarounds.</div>
+    <div class="score-circles">
+      <div class="score-circle">1</div>
+      <div class="score-circle">2</div>
+      <div class="score-circle">3</div>
+      <div class="score-circle">4</div>
+      <div class="score-circle">5</div>
+    </div>
+  </div>
+  <div class="question-row">
+    <div class="q-num">3</div>
+    <div class="q-text">When I hand off a project, it has clear steps &mdash; not just &ldquo;figure it out.&rdquo;</div>
+    <div class="score-circles">
+      <div class="score-circle">1</div>
+      <div class="score-circle">2</div>
+      <div class="score-circle">3</div>
+      <div class="score-circle">4</div>
+      <div class="score-circle">5</div>
+    </div>
+  </div>
+  <div class="question-row">
+    <div class="q-num">4</div>
+    <div class="q-text">My best people spend more time on strategic work than on busywork or manual tasks.</div>
+    <div class="score-circles">
+      <div class="score-circle">1</div>
+      <div class="score-circle">2</div>
+      <div class="score-circle">3</div>
+      <div class="score-circle">4</div>
+      <div class="score-circle">5</div>
+    </div>
+  </div>
+  <div class="question-row">
+    <div class="q-num">5</div>
+    <div class="q-text">My team can solve problems at their level without escalating everything to me.</div>
+    <div class="score-circles">
+      <div class="score-circle">1</div>
+      <div class="score-circle">2</div>
+      <div class="score-circle">3</div>
+      <div class="score-circle">4</div>
+      <div class="score-circle">5</div>
+    </div>
+  </div>
+
+  <div class="section-total">
+    <div class="total-label">Capability Score:</div>
+    <div class="total-box">&nbsp;</div>
+    <div class="total-max">/ 25</div>
+  </div>
+</div>
+
+<!-- SECTION 3: CONFIDENCE GAP -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-bar"></div>
+    <div class="section-title">The Confidence Gap</div>
+  </div>
+  <div class="section-subtitle">&ldquo;Does your team know they&rsquo;re allowed to act?&rdquo;</div>
+
+  <div class="question-row">
+    <div class="q-num">1</div>
+    <div class="q-text">My team makes decisions in their area without waiting for my approval.</div>
+    <div class="score-circles">
+      <div class="score-circle">1</div>
+      <div class="score-circle">2</div>
+      <div class="score-circle">3</div>
+      <div class="score-circle">4</div>
+      <div class="score-circle">5</div>
+    </div>
+  </div>
+  <div class="question-row">
+    <div class="q-num">2</div>
+    <div class="q-text">When something goes wrong, my team troubleshoots before calling me.</div>
+    <div class="score-circles">
+      <div class="score-circle">1</div>
+      <div class="score-circle">2</div>
+      <div class="score-circle">3</div>
+      <div class="score-circle">4</div>
+      <div class="score-circle">5</div>
+    </div>
+  </div>
+  <div class="question-row">
+    <div class="q-num">3</div>
+    <div class="q-text">People on my team take initiative on things I haven&rsquo;t explicitly asked them to do.</div>
+    <div class="score-circles">
+      <div class="score-circle">1</div>
+      <div class="score-circle">2</div>
+      <div class="score-circle">3</div>
+      <div class="score-circle">4</div>
+      <div class="score-circle">5</div>
+    </div>
+  </div>
+  <div class="question-row">
+    <div class="q-num">4</div>
+    <div class="q-text">My team shares ideas and pushes back when they disagree &mdash; respectfully, but directly.</div>
+    <div class="score-circles">
+      <div class="score-circle">1</div>
+      <div class="score-circle">2</div>
+      <div class="score-circle">3</div>
+      <div class="score-circle">4</div>
+      <div class="score-circle">5</div>
+    </div>
+  </div>
+  <div class="question-row">
+    <div class="q-num">5</div>
+    <div class="q-text">After completing something well, my team moves to the next thing without needing praise or permission.</div>
+    <div class="score-circles">
+      <div class="score-circle">1</div>
+      <div class="score-circle">2</div>
+      <div class="score-circle">3</div>
+      <div class="score-circle">4</div>
+      <div class="score-circle">5</div>
+    </div>
+  </div>
+
+  <div class="section-total">
+    <div class="total-label">Confidence Score:</div>
+    <div class="total-box">&nbsp;</div>
+    <div class="total-max">/ 25</div>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div class="results">
+  <div class="results-title">Your Results</div>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="result-card-title">Clarity</div>
+      <div class="result-score-box"></div>
+      <div class="result-scale">5&ndash;12 Wide open<br>13&ndash;18 Narrowing<br>19&ndash;25 Strong</div>
+    </div>
+    <div class="result-card">
+      <div class="result-card-title">Capability</div>
+      <div class="result-score-box"></div>
+      <div class="result-scale">5&ndash;12 Wide open<br>13&ndash;18 Narrowing<br>19&ndash;25 Strong</div>
+    </div>
+    <div class="result-card">
+      <div class="result-card-title">Confidence</div>
+      <div class="result-score-box"></div>
+      <div class="result-scale">5&ndash;12 Wide open<br>13&ndash;18 Narrowing<br>19&ndash;25 Strong</div>
+    </div>
+  </div>
+
+  <div class="results-insight">Your widest gap is where your team needs you most &mdash; and where the right tool makes the biggest difference.</div>
+
+  <div class="results-actions">
+    <span class="action-label">Clarity Gap widest?</span> Your team can&rsquo;t drive toward what they can&rsquo;t see. Start by making your vision visible.<br>
+    <span class="action-label">Capability Gap widest?</span> Your team is stuck in the wrong work. <strong>The Ownership Handoff ($37)</strong> fixes this in 20 minutes.<br>
+    <span class="action-label">Confidence Gap widest?</span> Your team is waiting for permission. They need proof they can act &mdash; and that starts with you handing them ownership.
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>DrivenByTeam.com &nbsp;|&nbsp; &copy; 2026 Driven by Team&trade;</span>
+  <span class="footer-right">Every gap has a tool. Start with your widest.</span>
+</div>
+
+</body>
+</html>
