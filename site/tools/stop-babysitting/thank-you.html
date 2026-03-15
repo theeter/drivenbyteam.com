@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're In | The Ownership Handoff | Driven by Team</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root {
+    --primary: #1B2A4A;
+    --accent: #E8872B;
+    --accent-hover: #D47620;
+    --light: #F7F5F2;
+    --text: #2D2D2D;
+    --text-light: #5A5A5A;
+    --white: #FFFFFF;
+    --border: #E0DCD7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text);
+    background: var(--light);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+  .thankyou-header {
+    background: var(--primary);
+    padding: 24px;
+    text-align: center;
+  }
+  .thankyou-header a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .thankyou-header a:hover { color: var(--accent); }
+
+  .thankyou-main {
+    padding: 48px 24px;
+  }
+
+  .thankyou-card {
+    background: var(--white);
+    border-radius: 8px;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 40px 32px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+
+  .thankyou-badge {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .thankyou-card h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .thankyou-card .subtitle {
+    font-size: 17px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    line-height: 1.5;
+  }
+
+  .next-steps {
+    text-align: left;
+    max-width: 440px;
+    margin: 0 auto 32px;
+  }
+
+  .next-steps h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .step {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    background: var(--accent);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 800;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-content h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .step-content p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 28px 0;
+  }
+
+  .monday-reminder {
+    background: var(--light);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+
+  .monday-reminder p {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .monday-reminder strong {
+    color: var(--primary);
+  }
+
+  .thankyou-closer {
+    font-size: 15px;
+    color: var(--text-light);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .thankyou-closer strong {
+    color: var(--text);
+    font-style: normal;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 40px 24px 32px;
+    font-size: 13px;
+    color: var(--text-light);
+  }
+  .footer a {
+    color: var(--text-light);
+    text-decoration: none;
+  }
+  .footer a:hover { color: var(--accent); }
+  .footer p { margin-bottom: 4px; }
+</style>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XN2XG291P8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XN2XG291P8');
+
+  // Google Ads Conversion Tracking
+  // TODO: Replace AW-XXXXXXXXX with your Google Ads account ID
+  // TODO: Replace AW-XXXXXXXXX/XXXXXXXXXXX with your conversion action ID
+  // gtag('config', 'AW-XXXXXXXXX');
+  // gtag('event', 'conversion', {
+  //   'send_to': 'AW-XXXXXXXXX/XXXXXXXXXXX',
+  //   'value': 37.00,
+  //   'currency': 'USD',
+  //   'transaction_id': ''
+  // });
+</script>
+
+<!-- Facebook Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2945427472338494');
+  fbq('track', 'PageView');
+  fbq('track', 'Purchase', {
+    content_name: 'The Ownership Handoff',
+    content_type: 'product',
+    value: 37.00,
+    currency: 'USD'
+  });
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2945427472338494&ev=PageView&noscript=1"/></noscript>
+
+</head>
+<body>
+
+<div class="thankyou-header">
+  <a href="/">Driven by Team&trade;</a>
+</div>
+
+<div class="thankyou-main">
+  <div class="thankyou-card">
+
+    <div class="thankyou-badge">Purchase Complete</div>
+    <h1>You&rsquo;re in. Let&rsquo;s go.</h1>
+    <p class="subtitle">The Ownership Handoff is on its way to your inbox right now. Check your email for your private podcast feed link.</p>
+
+    <div class="next-steps">
+      <h2>Here&rsquo;s What to Do Next</h2>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Check Your Email</h3>
+          <p>You&rsquo;ll get a link to your private podcast feed from Hiro.fm. It works on Apple Podcasts, Spotify, or the Hiro app.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Download the Ownership Handoff (PDF)</h3>
+          <p>Print it or open it on your screen. You&rsquo;ll fill it out while you listen.</p>
+          <p style="margin-top: 8px;"><a href="The-Ownership-Handoff-Tool.pdf" download style="color: var(--accent); font-weight: 600; text-decoration: none;">⬇ Download the PDF</a></p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Press Play on Episode 1</h3>
+          <p>Grab a pen. Tim walks you through each section. 20 minutes total &mdash; you&rsquo;ll be done before your coffee gets cold.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Use It Monday Morning</h3>
+          <p>Have the conversation. Hand off ownership. Stop pushing.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="monday-reminder">
+      <p><strong>Monday morning is the moment.</strong> Not &ldquo;someday.&rdquo; Not &ldquo;when things calm down.&rdquo; You bought this tool because you&rsquo;re tired of being the bottleneck. The Ownership Handoff works &mdash; but only if you use it.</p>
+    </div>
+
+    <p class="thankyou-closer">If this doesn&rsquo;t change how you lead on Monday, just email for a full refund. No forms. No hoops. <strong>(Email&rsquo;s on the guide.)</strong></p>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <p style="font-style: italic; margin-bottom: 8px;">Driven by team, not pushed by the boss.</p>
+  <p>&copy; 2026 Driven by Team&trade; &nbsp;|&nbsp; <a href="#">Terms</a> &nbsp;|&nbsp; <a href="#">Privacy</a> &nbsp;|&nbsp; <a href="mailto:tim@drivenbyteam.com">Contact</a></p>
+</footer>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Driven by Team™ — Hold Them Capable, Not Accountable</title>
+<title>Stop Babysitting Your Team | A Driven by Team™ Tool</title>
 <style>
   :root {
     --primary: #1B2A4A;
@@ -18,8 +18,6 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; }
-
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: var(--text);
@@ -30,50 +28,11 @@
 
   .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
 
-  /* ─── NAV ─── */
-  .nav {
-    background: var(--primary);
-    padding: 16px 24px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .nav-inner {
-    max-width: 680px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .nav-brand {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--white);
-    text-decoration: none;
-    letter-spacing: 0.5px;
-  }
-  .nav-brand span { color: var(--accent); }
-  .nav-links {
-    display: flex;
-    gap: 24px;
-    list-style: none;
-  }
-  .nav-links a {
-    font-size: 13px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--accent); }
-
-  /* ─── HERO ─── */
+  /* HERO */
   .hero {
     background: var(--primary);
     color: var(--white);
-    padding: 72px 24px 64px;
+    padding: 64px 24px 56px;
     text-align: center;
   }
   .hero .container { max-width: 640px; }
@@ -84,12 +43,12 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
   .hero h1 {
-    font-size: clamp(36px, 7vw, 52px);
+    font-size: clamp(32px, 6vw, 48px);
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 1.15;
     margin-bottom: 20px;
     letter-spacing: -0.5px;
   }
@@ -97,9 +56,18 @@
   .hero-sub {
     font-size: 18px;
     color: rgba(255,255,255,0.8);
-    max-width: 540px;
-    margin: 0 auto 36px;
+    max-width: 520px;
+    margin: 0 auto 32px;
     line-height: 1.5;
+  }
+  .hero-price {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 16px;
+  }
+  .hero-price strong {
+    font-size: 28px;
+    color: var(--white);
   }
 
   .cta-btn {
@@ -117,29 +85,9 @@
   }
   .cta-btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
   .cta-btn:active { transform: translateY(0); }
+  .cta-small { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 12px; }
 
-  .cta-btn-outline {
-    display: inline-block;
-    background: transparent;
-    color: var(--white);
-    font-size: 16px;
-    font-weight: 600;
-    padding: 14px 36px;
-    border-radius: 6px;
-    text-decoration: none;
-    border: 2px solid rgba(255,255,255,0.3);
-    transition: border-color 0.2s, color 0.2s;
-    cursor: pointer;
-  }
-  .cta-btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
-  .cta-small {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    margin-top: 12px;
-  }
-
-  /* ─── RECOGNITION / PROBLEM ─── */
+  /* RECOGNITION */
   .recognition {
     background: var(--light);
     padding: 56px 24px;
@@ -166,7 +114,7 @@
   }
   .pain-list li:last-child { border-bottom: none; }
   .pain-list li::before {
-    content: '\2192';
+    content: '→';
     position: absolute;
     left: 0;
     color: var(--accent);
@@ -180,18 +128,44 @@
     color: var(--primary);
   }
 
-  /* ─── FRAMEWORK ─── */
-  .framework {
+  /* AMPLIFICATION */
+  .amplification {
+    padding: 48px 24px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .amplification h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 16px;
+  }
+  .amplification p {
+    font-size: 17px;
+    color: var(--text-light);
+    max-width: 540px;
+    margin: 0 auto 12px;
+    line-height: 1.6;
+  }
+  .amplification .amp-closer {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-top: 20px;
+  }
+
+  /* WHAT YOU GET */
+  .what-you-get {
     padding: 56px 24px;
   }
-  .framework h2 {
+  .what-you-get h2 {
     font-size: 28px;
     font-weight: 700;
     text-align: center;
     margin-bottom: 12px;
     color: var(--primary);
   }
-  .framework-sub {
+  .what-you-get .subtitle {
     text-align: center;
     font-size: 17px;
     color: var(--text-light);
@@ -200,26 +174,108 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .gap-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    max-width: 580px;
-    margin: 0 auto;
-  }
-  .gap-card {
-    background: var(--white);
+
+  .tool-preview {
+    background: var(--light);
     border: 2px solid var(--border);
     border-radius: 8px;
-    padding: 24px 28px;
+    padding: 32px;
+    margin-bottom: 32px;
+  }
+  .tool-preview h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 4px;
+  }
+  .tool-preview .tool-tag {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  .tool-sections {
+    list-style: none;
+  }
+  .tool-sections li {
+    padding: 10px 0;
+    font-size: 15px;
+    color: var(--text-light);
+    border-bottom: 1px solid var(--border);
+  }
+  .tool-sections li:last-child { border-bottom: none; }
+  .tool-sections strong {
+    color: var(--primary);
+    display: block;
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+
+  .episodes {
+    list-style: none;
+  }
+  .episodes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .episodes li:last-child { border-bottom: none; }
+  .ep-num {
+    background: var(--primary);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 700;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .ep-info h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .ep-info p {
+    font-size: 14px;
+    color: var(--text-light);
+  }
+
+  /* HOW IT WORKS */
+  .how-it-works {
+    background: var(--light);
+    padding: 56px 24px;
+  }
+  .how-it-works h2 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary);
+  }
+  .steps {
+    list-style: none;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .steps li {
     display: flex;
     gap: 20px;
+    margin-bottom: 28px;
     align-items: flex-start;
   }
-  .gap-num {
+  .step-num {
     background: var(--accent);
     color: var(--white);
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 800;
     width: 36px;
     height: 36px;
@@ -229,256 +285,145 @@
     justify-content: center;
     flex-shrink: 0;
   }
-  .gap-card h3 {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 4px;
-  }
-  .gap-card p {
-    font-size: 15px;
-    color: var(--text-light);
-    line-height: 1.5;
-  }
-  .framework-closer {
-    text-align: center;
-    margin-top: 32px;
+  .step-text h4 {
     font-size: 17px;
     font-weight: 600;
-    color: var(--primary);
-    max-width: 520px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 2px;
   }
-
-  /* ─── LEAD MAGNET CTA ─── */
-  .magnet {
-    background: var(--light);
-    padding: 56px 24px;
-  }
-  .magnet-box {
-    max-width: 560px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .magnet-badge {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 16px;
-  }
-  .magnet h2 {
-    font-size: 28px;
-    font-weight: 800;
-    color: var(--primary);
-    margin-bottom: 12px;
-  }
-  .magnet-sub {
-    font-size: 17px;
-    color: var(--text-light);
-    margin-bottom: 28px;
-    line-height: 1.5;
-  }
-  .magnet-includes {
-    list-style: none;
-    max-width: 400px;
-    margin: 0 auto 28px;
-    text-align: left;
-  }
-  .magnet-includes li {
+  .step-text p {
     font-size: 15px;
-    padding: 6px 0;
-    padding-left: 28px;
-    position: relative;
-    color: var(--text);
-  }
-  .magnet-includes li::before {
-    content: '\2713';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-weight: 700;
-  }
-
-  /* ConvertKit form placeholder */
-  .form-placeholder {
-    max-width: 420px;
-    margin: 0 auto;
-  }
-  .form-placeholder input {
-    display: block;
-    width: 100%;
-    padding: 14px 16px;
-    font-size: 16px;
-    border: 2px solid var(--border);
-    border-radius: 6px;
-    margin-bottom: 12px;
-    font-family: inherit;
-    background: var(--white);
-    color: var(--text);
-  }
-  .form-placeholder input:focus {
-    outline: none;
-    border-color: var(--accent);
-  }
-  .form-placeholder button {
-    width: 100%;
-    background: var(--accent);
-    color: var(--white);
-    font-size: 18px;
-    font-weight: 700;
-    padding: 16px;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .form-placeholder button:hover { background: var(--accent-hover); }
-  .magnet-note {
-    font-size: 13px;
     color: var(--text-light);
+  }
+  .no-fluff {
+    text-align: center;
     margin-top: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary);
+    font-style: italic;
   }
 
-  /* ─── TOOLS ─── */
-  .tools {
+  /* CONTRAST TABLE */
+  .contrast {
     padding: 56px 24px;
   }
-  .tools h2 {
+  .contrast h2 {
     font-size: 28px;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: 32px;
     color: var(--primary);
   }
-  .tools-sub {
-    text-align: center;
-    font-size: 17px;
-    color: var(--text-light);
-    margin-bottom: 40px;
-  }
-
-  .tool-card {
+  .contrast-table {
     max-width: 580px;
-    margin: 0 auto 20px;
-    background: var(--white);
+    margin: 0 auto;
     border: 2px solid var(--border);
     border-radius: 8px;
     overflow: hidden;
   }
-  .tool-card-header {
-    background: var(--primary);
-    color: var(--white);
-    padding: 20px 28px;
+  .contrast-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
-  .tool-card-badge {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
+  .contrast-header div {
+    padding: 14px 20px;
+    font-size: 14px;
+    font-weight: 700;
     text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 8px;
-  }
-  .tool-card-header h3 {
-    font-size: 22px;
-    font-weight: 800;
-    margin-bottom: 4px;
-  }
-  .tool-card-header p {
-    font-size: 15px;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.5;
-  }
-  .tool-card-body {
-    padding: 20px 28px;
-  }
-  .tool-card-includes {
-    list-style: none;
-    margin-bottom: 20px;
-  }
-  .tool-card-includes li {
-    font-size: 15px;
-    padding: 6px 0;
-    padding-left: 24px;
-    position: relative;
-    color: var(--text-light);
-  }
-  .tool-card-includes li::before {
-    content: '\2713';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-weight: 700;
-  }
-  .tool-card-cta {
-    display: inline-block;
-    background: var(--accent);
-    color: var(--white);
-    font-size: 16px;
-    font-weight: 700;
-    padding: 12px 36px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .tool-card-cta:hover { background: var(--accent-hover); }
-
-  .tool-card-soon {
-    max-width: 580px;
-    margin: 0 auto;
-    background: var(--light);
-    border: 2px dashed var(--border);
-    border-radius: 8px;
-    padding: 28px;
+    letter-spacing: 1px;
     text-align: center;
   }
-  .tool-card-soon p {
-    font-size: 16px;
+  .contrast-header .old-col {
+    background: #EDE9E4;
     color: var(--text-light);
-    margin-bottom: 4px;
   }
-  .tool-card-soon a {
-    color: var(--accent);
+  .contrast-header .new-col {
+    background: var(--primary);
+    color: var(--white);
+  }
+  .contrast-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--border);
+  }
+  .contrast-row div {
+    padding: 14px 20px;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .contrast-row .old-val {
+    color: var(--text-light);
+    background: var(--white);
+  }
+  .contrast-row .new-val {
+    color: var(--primary);
+    background: rgba(27, 42, 74, 0.04);
     font-weight: 600;
-    text-decoration: none;
   }
 
-  /* ─── ABOUT ─── */
-  .about {
+  /* PROOF */
+  .proof {
     background: var(--light);
     padding: 56px 24px;
   }
-  .about h2 {
+  .proof h2 {
     font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 32px;
+    color: var(--primary);
+  }
+  .proof-stories {
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  .proof-story {
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .proof-story:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  .proof-story p {
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .proof-story .result {
+    font-weight: 700;
+    color: var(--primary);
+    margin-top: 8px;
+    font-size: 17px;
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 56px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .about h2 {
+    font-size: 24px;
     font-weight: 700;
     margin-bottom: 16px;
     color: var(--primary);
-    text-align: center;
   }
-  .about-content {
-    max-width: 580px;
-    margin: 0 auto;
-  }
-  .about-content p {
+  .about p {
     font-size: 16px;
     color: var(--text-light);
     line-height: 1.7;
-    margin-bottom: 16px;
   }
-  .about-content p:last-child { margin-bottom: 0; }
-  .about-content strong { color: var(--text); }
 
-  /* ─── CONSULTING ─── */
-  .consulting {
-    background: var(--primary);
-    color: var(--white);
+  /* OFFER */
+  .offer {
     padding: 56px 24px;
     text-align: center;
+    background: var(--primary);
+    color: var(--white);
   }
-  .consulting-badge {
+  .offer-badge {
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 1.5px;
@@ -486,55 +431,80 @@
     color: var(--accent);
     margin-bottom: 16px;
   }
-  .consulting h2 {
-    font-size: 28px;
+  .offer h2 {
+    font-size: 32px;
     font-weight: 800;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
   }
-  .consulting-sub {
-    font-size: 17px;
-    color: rgba(255,255,255,0.7);
-    max-width: 520px;
-    margin: 0 auto 32px;
-    line-height: 1.5;
+  .offer-includes {
+    list-style: none;
+    max-width: 420px;
+    margin: 0 auto 24px;
+    text-align: left;
   }
-  .phases {
-    display: flex;
-    gap: 16px;
-    max-width: 560px;
-    margin: 0 auto 36px;
-    text-align: center;
+  .offer-includes li {
+    font-size: 16px;
+    padding: 8px 0;
+    padding-left: 28px;
+    position: relative;
+    color: rgba(255,255,255,0.85);
   }
-  .phase {
-    flex: 1;
-  }
-  .phase-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+  .offer-includes li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
     color: var(--accent);
-    margin-bottom: 6px;
+    font-weight: 700;
   }
-  .phase-name {
-    font-size: 20px;
-    font-weight: 800;
-    margin-bottom: 4px;
-  }
-  .phase-detail {
-    font-size: 13px;
+  .offer-price {
+    font-size: 14px;
     color: rgba(255,255,255,0.5);
+    margin-bottom: 8px;
   }
-  .phase-arrow {
-    display: flex;
-    align-items: center;
-    color: rgba(255,255,255,0.2);
-    font-size: 24px;
-    flex-shrink: 0;
-    padding-top: 12px;
+  .offer-price strong {
+    font-size: 36px;
+    color: var(--white);
+  }
+  .offer-delivery {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 24px;
+  }
+  .guarantee {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 20px;
+    font-style: italic;
   }
 
-  /* ─── FOOTER ─── */
+  /* FAQ */
+  .faq {
+    padding: 56px 24px;
+  }
+  .faq h2 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 32px;
+    color: var(--primary);
+  }
+  .faq-item {
+    max-width: 580px;
+    margin: 0 auto 24px;
+  }
+  .faq-item h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 6px;
+  }
+  .faq-item p {
+    font-size: 15px;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
   .footer {
     background: var(--light);
     padding: 32px 24px;
@@ -543,22 +513,12 @@
     color: var(--text-light);
   }
   .footer a { color: var(--accent); text-decoration: none; }
-  .footer-links {
-    margin-top: 8px;
-  }
 
-  /* ─── MOBILE ─── */
+  /* MOBILE TWEAKS */
   @media (max-width: 480px) {
-    .nav-links { gap: 16px; }
-    .nav-links a { font-size: 11px; letter-spacing: 0.5px; }
-    .hero { padding: 56px 20px 48px; }
+    .hero { padding: 48px 20px 40px; }
     .cta-btn { width: 100%; text-align: center; padding: 18px 24px; }
-    .cta-btn-outline { width: 100%; text-align: center; }
-    .hero-buttons { display: flex; flex-direction: column; gap: 12px; }
-    .gap-card { flex-direction: column; gap: 12px; }
-    .phases { flex-direction: column; gap: 20px; }
-    .phase-arrow { display: none; }
-    .form-placeholder input { font-size: 16px; }
+    .tool-preview { padding: 24px 20px; }
   }
 </style>
 
@@ -590,192 +550,251 @@
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-brand">Driven by Team<span>&trade;</span></a>
-    <ul class="nav-links">
-      <li><a href="#tools">Tools</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="https://visitwithtim.com">Work with Tim</a></li>
-    </ul>
-  </div>
-</nav>
-
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <div class="hero-badge">Hold Them Capable, Not Accountable</div>
-    <h1>Your Team Is <span>the Answer.</span></h1>
-    <p class="hero-sub">Driven by Team&trade; gives owner-operators the tools to build teams that drive results &mdash; without babysitting, micromanaging, or replacing anyone.</p>
-    <div class="hero-buttons">
-      <a href="#assessment" class="cta-btn">Find Your Team&rsquo;s Biggest Gap &rarr;</a>
-      <p class="cta-small">Free assessment. 2 minutes. See exactly where your team is stuck.</p>
-    </div>
+    <div class="hero-badge">A Driven by Team™ Tool</div>
+    <h1>Stop Babysitting <span>Your Team</span></h1>
+    <p class="hero-sub">Your team isn't the problem — they're the answer. They just need clarity on the destination, a path they can walk, and one win that starts the flywheel. This 20-minute tool starts that cycle.</p>
+    <div class="hero-price">One-time purchase: <strong>$37</strong></div>
+    <a href="checkout.html" class="cta-btn">Get the Tool</a>
+    <p class="cta-small">Instant access. 20 minutes. Nobody gets fired.</p>
   </div>
 </section>
 
 <!-- RECOGNITION -->
 <section class="recognition">
   <div class="container">
-    <h2>Sound Familiar?</h2>
+    <h2>Sound familiar?</h2>
     <ul class="pain-list">
-      <li>Your phone rings 50 times a day because your team can&rsquo;t move without you.</li>
-      <li>You hired smart people but you&rsquo;re still making every decision.</li>
-      <li>You can&rsquo;t take a day off without everything falling apart.</li>
-      <li>&ldquo;Accountability conversations&rdquo; feel like babysitting adults.</li>
-      <li>You know exactly what needs to happen &mdash; but nobody else seems to see it.</li>
-      <li>Everything depends on you. And you&rsquo;re exhausted.</li>
+      <li>Your team waits for you to tell them what to do next. Every. Single. Time.</li>
+      <li>You hired smart people but you're still making every decision.</li>
+      <li>You can't take a day off without everything falling apart.</li>
+      <li>You're exhausted from being the only one who pushes for results.</li>
+      <li>"Accountability conversations" feel like babysitting adults.</li>
+      <li>You know what needs to happen — but nobody else seems to see it.</li>
+      <li>You've tried delegating. It lasted about a week.</li>
     </ul>
-    <p class="recognition-closer">You&rsquo;re not the problem. You&rsquo;re the bottleneck. There&rsquo;s a difference.</p>
+    <p class="recognition-closer">Your team isn't the problem. The problem is nobody's holding them capable.</p>
   </div>
 </section>
 
-<!-- FRAMEWORK -->
-<section class="framework" id="framework">
+<!-- AMPLIFICATION -->
+<section class="amplification">
   <div class="container">
-    <h2>Why Teams Get Stuck</h2>
-    <p class="framework-sub">Most teams underperform for one of three reasons. We call them The Three Gaps.</p>
+    <h2>Nobody Gets Fired. Everybody Gets Upgraded.</h2>
+    <p>Your team isn't lazy. They're not incompetent. They're stuck — because they can't see the destination, nobody broke the work into steps they can walk, and they've never had the experience of driving something and watching it succeed.</p>
+    <p>The Ownership Handoff doesn't replace your people or add more pressure. It makes your existing team superhuman at what you hired them for.</p>
+    <p class="amp-closer">Same team. Different leverage.</p>
+  </div>
+</section>
 
-    <div class="gap-cards">
-      <div class="gap-card">
-        <div class="gap-num">1</div>
-        <div>
-          <h3>The Clarity Gap</h3>
-          <p>&ldquo;They can&rsquo;t see what you see.&rdquo; Your vision is trapped in your head. The team sees today&rsquo;s problems. Nobody&rsquo;s wrong &mdash; they just can&rsquo;t see the same destination.</p>
-        </div>
-      </div>
-      <div class="gap-card">
-        <div class="gap-num">2</div>
-        <div>
-          <h3>The Capability Gap</h3>
-          <p>&ldquo;They don&rsquo;t have a path they can walk.&rdquo; Your team is capable but stuck &mdash; in busywork, manual processes, or goals that feel impossible. Nobody has broken the work into steps they can actually do.</p>
-        </div>
-      </div>
-      <div class="gap-card">
-        <div class="gap-num">3</div>
-        <div>
-          <h3>The Confidence Gap</h3>
-          <p>&ldquo;They don&rsquo;t know they&rsquo;re allowed to act.&rdquo; Your team waits for permission because they&rsquo;ve never been shown that their judgment is trusted. Every decision flows through you.</p>
-        </div>
-      </div>
+<!-- WHAT YOU GET -->
+<section class="what-you-get">
+  <div class="container">
+    <h2>One Tool. One Page. 20 Minutes.</h2>
+    <p class="subtitle">Press play, fill out the sheet, and lead differently before the week starts.</p>
+
+    <div class="tool-preview">
+      <h3>The Ownership Handoff™</h3>
+      <div class="tool-tag">One-Page Tool (PDF Download)</div>
+      <ul class="tool-sections">
+        <li>
+          <strong>Section 1: What Needs an Owner</strong>
+          Identify the 3-5 outcomes you're currently pushing that should be someone else's to drive.
+        </li>
+        <li>
+          <strong>Section 2: Match the Right Person</strong>
+          Map each outcome to the team member who's capable of owning it — and what "ownership" actually looks like.
+        </li>
+        <li>
+          <strong>Section 3: The Monday Handoff</strong>
+          Script exactly what to say to transfer ownership so your team drives it — without you hovering.
+        </li>
+      </ul>
     </div>
 
-    <p class="framework-closer">Close all three and your team drives. That&rsquo;s what every Driven by Team&trade; tool is built to do.</p>
-  </div>
-</section>
-
-<!-- LEAD MAGNET -->
-<section class="magnet" id="assessment">
-  <div class="magnet-box">
-    <div class="magnet-badge">Free Tool</div>
-    <h2>Find Your Team&rsquo;s Biggest Gap</h2>
-    <p class="magnet-sub">The 3 Gaps Assessment &mdash; 15 questions that show you exactly where your team is stuck and where to start fixing it.</p>
-    <ul class="magnet-includes">
-      <li>15 questions across 3 gaps</li>
-      <li>Instant clarity on where to start</li>
-      <li>Specific next step for your widest gap</li>
+    <ul class="episodes">
+      <li>
+        <div class="ep-num">1</div>
+        <div class="ep-info">
+          <h4>"Why Your Team Waits to Be Told"</h4>
+          <p>Identify the outcomes you're pushing that should be owned by your team. Fill out Section 1. (6 min)</p>
+        </div>
+      </li>
+      <li>
+        <div class="ep-num">2</div>
+        <div class="ep-info">
+          <h4>"Stop Pushing, Start Matching"</h4>
+          <p>Match each outcome to the right person. Define what ownership means for each one. Fill out Section 2. (7 min)</p>
+        </div>
+      </li>
+      <li>
+        <div class="ep-num">3</div>
+        <div class="ep-info">
+          <h4>"The Monday Morning Handoff"</h4>
+          <p>Script the conversation that transfers ownership. Walk away with a plan you can use this week. Fill out Section 3. (7 min)</p>
+        </div>
+      </li>
     </ul>
-
-    <!-- Replace this with your ConvertKit form embed -->
-    <div class="form-placeholder">
-      <input type="text" placeholder="First name">
-      <input type="email" placeholder="Email address">
-      <button type="button">Get the Free Assessment &rarr;</button>
-    </div>
-    <p class="magnet-note">Free. No spam. Just the assessment and one email showing you what to do with your score.</p>
   </div>
 </section>
 
-<!-- TOOLS -->
-<section class="tools" id="tools">
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
   <div class="container">
-    <h2>The Tools</h2>
-    <p class="tools-sub">Each one solves one problem. 20 minutes. Use it Monday.</p>
+    <h2>Here's How It Works</h2>
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <h4>Download the Ownership Handoff</h4>
+          <p>Instant access. Print it or fill it in digitally.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <h4>Press Play on Episode 1</h4>
+          <p>Tim walks you through each section. Grab a pen.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <h4>Fill It Out as You Listen</h4>
+          <p>20 minutes total. You'll finish before your coffee gets cold.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">4</div>
+        <div class="step-text">
+          <h4>Bring It to Work. Use It.</h4>
+          <p>Monday morning: have the conversation, hand off ownership, stop pushing.</p>
+        </div>
+      </li>
+    </ul>
+    <p class="no-fluff">No courses. No modules. No 47-video training. One tool. One listen. Done.</p>
+  </div>
+</section>
 
-    <!-- Tool 1: The Ownership Handoff -->
-    <div class="tool-card">
-      <div class="tool-card-header">
-        <div class="tool-card-badge">$37 &middot; Closes the Capability Gap</div>
-        <h3>Stop Babysitting Your Team</h3>
-        <p>Your team isn&rsquo;t lazy &mdash; they&rsquo;re stuck. This tool transfers ownership so they drive results without you pushing.</p>
+<!-- CONTRAST -->
+<section class="contrast">
+  <div class="container">
+    <h2>Two Ways to Lead. Pick One.</h2>
+    <div class="contrast-table">
+      <div class="contrast-header">
+        <div class="old-col">Without the Map</div>
+        <div class="new-col">With the Map</div>
       </div>
-      <div class="tool-card-body">
-        <ul class="tool-card-includes">
-          <li>Private podcast: 3 episodes, 20 minutes total</li>
-          <li>The Ownership Handoff&trade; &mdash; one-page tool (PDF)</li>
-          <li>Completed tool ready to use Monday morning</li>
-          <li>Lifetime access</li>
-        </ul>
-        <a href="tools/stop-babysitting/" class="tool-card-cta">Get the Tool &rarr;</a>
+      <div class="contrast-row">
+        <div class="old-val">You push every outcome</div>
+        <div class="new-val">Your team owns outcomes</div>
+      </div>
+      <div class="contrast-row">
+        <div class="old-val">"Did you do this yet?"</div>
+        <div class="new-val">"Here's my update"</div>
+      </div>
+      <div class="contrast-row">
+        <div class="old-val">Accountability talks</div>
+        <div class="new-val">Capability transfer</div>
+      </div>
+      <div class="contrast-row">
+        <div class="old-val">You = the bottleneck</div>
+        <div class="new-val">You = the strategist</div>
+      </div>
+      <div class="contrast-row">
+        <div class="old-val">Working IN the business</div>
+        <div class="new-val">Leading the business</div>
+      </div>
+      <div class="contrast-row">
+        <div class="old-val">Dinner gets cold</div>
+        <div class="new-val">Drive home for dinner</div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Coming Soon -->
-    <div class="tool-card-soon">
-      <p>More tools coming &mdash; each one targeting a specific gap.</p>
-      <p><a href="#assessment">Join the list</a> to get first access.</p>
+<!-- PROOF -->
+<section class="proof">
+  <div class="container">
+    <h2>This Is What It Looks Like</h2>
+    <div class="proof-stories">
+      <div class="proof-story">
+        <p>I worked with a construction company owner who realized he was the only person who knew which jobs were on schedule. Every morning started with 50+ calls because the team couldn't move without him.</p>
+        <p class="result">He filled out The Ownership Handoff on a Tuesday. By the following Monday, three crew leads were running their own jobs. His phone stopped ringing at dinner.</p>
+      </div>
+      <div class="proof-story">
+        <p>Sarah spent 15 hours a week chasing invoices. But that's not what she was hired for — she was hired for supplier negotiations. Nobody had ever handed her that ownership.</p>
+        <p class="result">15 hours became 20 minutes. She walked out of that room different. Not because she got new skills — because someone held her capable.</p>
+      </div>
+      <div class="proof-story">
+        <p>A service company owner told me, "I feel like I'm babysitting adults." His team wasn't lazy. They just didn't know what they owned. The vision was in his head and nowhere else.</p>
+        <p class="result">One conversation. One handoff. His team started driving without being pushed. Same team. Different leverage.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="about" id="about">
+<section class="about">
   <div class="container">
-    <h2>Built in the Trenches. Not the Classroom.</h2>
-    <div class="about-content">
-      <p>I&rsquo;m Tim Heeter. I&rsquo;ve spent 20 years helping teams execute &mdash; from rock quarry crews who wanted to fix computers with a hammer to high-growth companies stuck at the founder bottleneck.</p>
-      <p>Every tool in this system was built inside real businesses with real teams. Not focus groups. Not theory. <strong>Tested by operators, for operators.</strong></p>
-      <p>I don&rsquo;t install and leave. I stay until the new way becomes just how we do things. That philosophy &mdash; hold them capable, not accountable &mdash; is the foundation of everything here.</p>
-    </div>
+    <h2>About Tim</h2>
+    <p>I've spent 20 years helping teams execute — from rock quarry crews who wanted to fix computers with a hammer to high-growth companies stuck at the founder bottleneck. Now I help business owners stop pushing every outcome and build teams that drive results on their own. The Ownership Handoff is how it starts. One page, one conversation, and your team starts moving without you holding every rope.</p>
   </div>
 </section>
 
-<!-- CONSULTING -->
-<section class="consulting">
+<!-- OFFER -->
+<section class="offer">
   <div class="container">
-    <div class="consulting-badge">For Businesses Ready for the Full Transformation</div>
-    <h2>The 90-Day Achievement Accelerator</h2>
-    <p class="consulting-sub">Tim steps into your business and builds the system with your team. What you&rsquo;ve been thinking about doing for months &mdash; we implement in one quarter.</p>
+    <div class="offer-badge">A Driven by Team™ Tool</div>
+    <h2>Stop Babysitting Your Team</h2>
+    <p style="font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 24px; font-style: italic;">Hold them capable, not accountable.</p>
+    <ul class="offer-includes">
+      <li>Private podcast: 3 episodes, 20 minutes total</li>
+      <li>The Ownership Handoff™ — one-page tool (PDF)</li>
+      <li>Completed tool ready to use Monday morning</li>
+      <li>Lifetime access — listen again anytime</li>
+    </ul>
+    <div class="offer-price">One-time: <strong>$37</strong></div>
+    <p class="offer-delivery">Less than the lunch where you complain about your team. Press play in Apple Podcasts, Spotify, or the Hiro app. Done in 20 minutes.</p>
+    <a href="checkout.html" class="cta-btn">Get the Tool</a>
+    <p class="guarantee">If this doesn&rsquo;t change how you lead on Monday, just email for a full refund. No forms. No hoops. (Email&rsquo;s on the guide.)</p>
+  </div>
+</section>
 
-    <div class="phases">
-      <div class="phase">
-        <div class="phase-label">Weeks 1&ndash;2</div>
-        <div class="phase-name">Clear</div>
-        <div class="phase-detail">Get everyone seeing the same destination</div>
-      </div>
-      <div class="phase-arrow">&rarr;</div>
-      <div class="phase">
-        <div class="phase-label">Weeks 3&ndash;6</div>
-        <div class="phase-name">Capable</div>
-        <div class="phase-detail">Build the path your team can walk</div>
-      </div>
-      <div class="phase-arrow">&rarr;</div>
-      <div class="phase">
-        <div class="phase-label">Weeks 7&ndash;12</div>
-        <div class="phase-name">Confident</div>
-        <div class="phase-detail">Watch the feedback loop kick in</div>
-      </div>
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <h2>Questions</h2>
+
+    <div class="faq-item">
+      <h3>How do I listen?</h3>
+      <p>Delivered as a private podcast through Hiro.fm. Works on Apple Podcasts, Spotify, or the Hiro app. You'll get your private feed link instantly after purchase.</p>
     </div>
 
-    <a href="https://visitwithtim.com" class="cta-btn">Book a Discovery Call &rarr;</a>
-    <p class="cta-small">Free conversation. No pitch. Just clarity on what&rsquo;s possible.</p>
+    <div class="faq-item">
+      <h3>Is this a course?</h3>
+      <p>No. It's 20 minutes and one page. You'll have a usable plan before your coffee gets cold. Think "audio tool-kit" — you fill out the tool while Tim walks you through it.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Who is this for?</h3>
+      <p>Business owners, managers, and team leaders who are tired of pushing every outcome. If you've ever thought "I feel like I'm babysitting adults" — this is for you.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>I've tried accountability systems. How is this different?</h3>
+      <p>That's not an accountability problem — it's a capability problem. Most systems add more pressure, more check-ins, more consequences. This tool transfers ownership so your team drives results because they CAN — not because they're being watched. Nobody gets squeezed. Everybody gets upgraded.</p>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container">
-    <p style="font-style: italic; margin-bottom: 8px;">Driven by team, not pushed by the boss.</p>
-    <div class="footer-links">
-      <a href="#tools">Tools</a> &nbsp;|&nbsp;
-      <a href="#about">About</a> &nbsp;|&nbsp;
-      <a href="https://visitwithtim.com">Work with Tim</a> &nbsp;|&nbsp;
-      <a href="#">Terms</a> &nbsp;|&nbsp;
-      <a href="#">Privacy</a> &nbsp;|&nbsp;
-      <a href="mailto:tim@timheeter.com">Contact</a>
-    </div>
-    <p style="margin-top: 8px;">&copy; 2026 Driven by Team&trade;</p>
+    <p style="margin-bottom: 8px; font-style: italic;">Driven by team, not pushed by the boss.</p>
+    <p>&copy; 2026 Driven by Team™ &nbsp;|&nbsp; <a href="#">Terms</a> &nbsp;|&nbsp; <a href="#">Privacy</a> &nbsp;|&nbsp; <a href="mailto:tim@drivenbyteam.com">Contact</a></p>
   </div>
 </footer>
 

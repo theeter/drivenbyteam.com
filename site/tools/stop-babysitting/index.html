@@ -3,7 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stop Babysitting Your Team | A Driven by Team™ Tool</title>
+<title>Stop Babysitting Your Team | The Ownership Handoff | Driven by Team</title>
+
+<!-- Open Graph -->
+<meta property="og:title" content="Stop Babysitting Your Team — The Ownership Handoff">
+<meta property="og:description" content="Transfer your vision to your team in 20 minutes. One tool. One conversation. They drive results without you pushing. $37.">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://drivenbyteam.com/tools/stop-babysitting/">
+<meta property="og:site_name" content="Driven by Team">
+<meta property="product:price:amount" content="37.00">
+<meta property="product:price:currency" content="USD">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Stop Babysitting Your Team — The Ownership Handoff">
+<meta name="twitter:description" content="Transfer your vision to your team in 20 minutes. One tool. One conversation. They drive results without you pushing. $37.">
+
 <style>
   :root {
     --primary: #1B2A4A;
@@ -143,6 +158,16 @@
     font-weight: 600;
     color: var(--primary);
   }
+  .mid-cta {
+    text-align: center;
+    margin-top: 28px;
+  }
+  .mid-cta .cta-btn {
+    background: var(--primary);
+  }
+  .mid-cta .cta-btn:hover {
+    background: #243658;
+  }
 
   /* AMPLIFICATION */
   .amplification {
@@ -168,6 +193,31 @@
     font-weight: 700;
     color: var(--primary);
     margin-top: 20px;
+  }
+  .price-anchor {
+    max-width: 520px;
+    margin: 24px auto 0;
+    background: var(--light);
+    border-radius: 8px;
+    padding: 24px 28px;
+    text-align: left;
+  }
+  .price-anchor p {
+    font-size: 15px;
+    color: var(--text-light);
+    margin: 0 0 8px;
+    text-align: left;
+    line-height: 1.5;
+  }
+  .price-anchor p:last-child {
+    margin-bottom: 0;
+  }
+  .price-anchor .anchor-price {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-top: 12px;
+    text-align: center;
   }
 
   /* WHAT YOU GET */
@@ -395,16 +445,80 @@
     padding-bottom: 0;
     border-bottom: none;
   }
+  .proof-story h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 12px;
+  }
   .proof-story p {
     font-size: 16px;
     color: var(--text);
     line-height: 1.7;
+    margin-bottom: 8px;
   }
   .proof-story .result {
     font-weight: 700;
     color: var(--primary);
     margin-top: 8px;
     font-size: 17px;
+  }
+
+  /* NOT FOR YOU */
+  .not-for-you {
+    padding: 56px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .not-for-you h2 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 32px;
+    color: var(--primary);
+  }
+  .not-for-list, .is-for-list {
+    list-style: none;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+  .not-for-list li {
+    font-size: 16px;
+    padding: 10px 0;
+    padding-left: 32px;
+    position: relative;
+    color: var(--text-light);
+    border-bottom: 1px solid var(--border);
+  }
+  .not-for-list li:last-child { border-bottom: none; }
+  .not-for-list li::before {
+    content: '\2717';
+    position: absolute;
+    left: 0;
+    color: #C0392B;
+    font-weight: 700;
+  }
+  .is-for-heading {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+    text-align: center;
+    margin: 32px 0 16px;
+  }
+  .is-for-list li {
+    font-size: 16px;
+    padding: 10px 0;
+    padding-left: 32px;
+    position: relative;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+  }
+  .is-for-list li:last-child { border-bottom: none; }
+  .is-for-list li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
   }
 
   /* ABOUT */
@@ -422,7 +536,9 @@
     font-size: 16px;
     color: var(--text-light);
     line-height: 1.7;
+    margin-bottom: 16px;
   }
+  .about p:last-child { margin-bottom: 0; }
 
   /* OFFER */
   .offer {
@@ -520,12 +636,78 @@
   }
   .footer a { color: var(--accent); text-decoration: none; }
 
+  /* STICKY MOBILE CTA */
+  .sticky-cta {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--primary);
+    padding: 12px 16px;
+    text-align: center;
+    z-index: 999;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.15);
+  }
+  .sticky-cta a {
+    display: block;
+    background: var(--accent);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 14px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+  .sticky-cta a:hover { background: var(--accent-hover); }
+
+  @media (max-width: 768px) {
+    .sticky-cta { display: block; }
+    body { padding-bottom: 72px; }
+  }
+
   @media (max-width: 480px) {
     .hero { padding: 48px 20px 40px; }
     .cta-btn { width: 100%; text-align: center; padding: 18px 24px; }
     .tool-preview { padding: 24px 20px; }
   }
 </style>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XN2XG291P8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XN2XG291P8');
+
+  // Google Ads — Remarketing + Conversion Tracking
+  // TODO: Replace AW-XXXXXXXXX with your Google Ads account ID
+  // gtag('config', 'AW-XXXXXXXXX');
+</script>
+
+<!-- Facebook Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2945427472338494');
+  fbq('track', 'PageView');
+  fbq('track', 'ViewContent', {
+    content_name: 'The Ownership Handoff',
+    content_type: 'product',
+    value: 37.00,
+    currency: 'USD'
+  });
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2945427472338494&ev=PageView&noscript=1"/></noscript>
+
 </head>
 <body>
 
@@ -539,10 +721,10 @@
   <div class="container">
     <div class="hero-badge">A Driven by Team&trade; Tool</div>
     <h1>Stop Babysitting <span>Your Team</span></h1>
-    <p class="hero-sub">Your team isn&rsquo;t the problem &mdash; they&rsquo;re the answer. They just can&rsquo;t see what you see yet. This 20-minute tool changes that.</p>
+    <p class="hero-sub">The Ownership Handoff&trade; transfers your vision to your team in 20 minutes so they drive results without you pushing every outcome.</p>
     <div class="hero-price">One-time purchase: <strong>$37</strong></div>
-    <a href="checkout.html" class="cta-btn">Get the Tool</a>
-    <p class="cta-small">Instant access. 20 minutes. Nobody gets fired.</p>
+    <a href="checkout.html" class="cta-btn">Get the Ownership Handoff &mdash; $37</a>
+    <p class="cta-small">Instant access. Done before your coffee gets cold. Use it Monday morning.</p>
   </div>
 </section>
 
@@ -560,6 +742,9 @@
       <li>You&rsquo;ve tried delegating. It lasted about a week.</li>
     </ul>
     <p class="recognition-closer">Your team isn&rsquo;t the problem. The problem is nobody&rsquo;s holding them capable.</p>
+    <div class="mid-cta">
+      <a href="checkout.html" class="cta-btn">Get the Ownership Handoff &mdash; $37</a>
+    </div>
   </div>
 </section>
 
@@ -567,9 +752,16 @@
 <section class="amplification">
   <div class="container">
     <h2>Nobody Gets Fired. Everybody Gets Upgraded.</h2>
-    <p>Your team isn&rsquo;t lazy. They&rsquo;re not incompetent. They&rsquo;re stuck &mdash; because the vision in your head hasn&rsquo;t been transferred to theirs.</p>
+    <p>Your team isn&rsquo;t lazy. They&rsquo;re not incompetent. They&rsquo;re stuck &mdash; because they can&rsquo;t see the destination, nobody broke the work into steps they can walk, and they&rsquo;ve never had the experience of driving something and watching it succeed.</p>
     <p>The Ownership Handoff doesn&rsquo;t replace your people or add more pressure. It makes your existing team superhuman at what you hired them for.</p>
     <p class="amp-closer">Same team. Different leverage.</p>
+
+    <div class="price-anchor">
+      <p>An EOS Implementer costs <strong>$5,000/quarter</strong>.</p>
+      <p>A leadership coach runs <strong>$500/month</strong>.</p>
+      <p>A bad hire costs you <strong>$15,000</strong> minimum.</p>
+      <p class="anchor-price">The Ownership Handoff: <strong>$37</strong> and 20 minutes.</p>
+    </div>
   </div>
 </section>
 
@@ -668,8 +860,8 @@
     <h2>Two Ways to Lead. Pick One.</h2>
     <div class="contrast-table">
       <div class="contrast-header">
-        <div class="old-col">Without the Map</div>
-        <div class="new-col">With the Map</div>
+        <div class="old-col">Without the Handoff</div>
+        <div class="new-col">With the Ownership Handoff</div>
       </div>
       <div class="contrast-row">
         <div class="old-val">You push every outcome</div>
@@ -704,19 +896,50 @@
   <div class="container">
     <h2>This Is What It Looks Like</h2>
     <div class="proof-stories">
+
       <div class="proof-story">
-        <p>I worked with a construction company owner who realized he was the only person who knew which jobs were on schedule. Every morning started with 50+ calls because the team couldn&rsquo;t move without him.</p>
-        <p class="result">He filled out The Ownership Handoff on a Tuesday. By the following Monday, three crew leads were running their own jobs. His phone stopped ringing at dinner.</p>
+        <h3>The Rock Quarry</h3>
+        <p>Two crews, 12 trucks, 400 jobs a year. The entire operation lived in two people&rsquo;s heads. Tim was handwriting tickets at 11 PM because nobody else knew the system well enough to do it.</p>
+        <p>Using the Hold Them Capable framework, ownership transferred to the team piece by piece. No firings. No overhaul. Just clarity on who owns what &mdash; and proof they could handle it.</p>
+        <p class="result">6 crews. 30 trucks. 1,100 jobs a year. 40+ people driving daily operations. Tim leaving at 7. His partner running it solo by 5 PM. This is where Hold Them Capable was born.</p>
       </div>
+
       <div class="proof-story">
-        <p>Sarah spent 15 hours a week chasing invoices. But that&rsquo;s not what she was hired for &mdash; she was hired for supplier negotiations. Nobody had ever handed her that ownership.</p>
-        <p class="result">15 hours became 20 minutes. She walked out of that room different. Not because she got new skills &mdash; because someone held her capable.</p>
+        <h3>The Landscaper</h3>
+        <p>15 employees. The owner was leaving his kids at dinner to drive back to the office and do invoices until midnight. Pricing was gut-feel. He was undercharging because he didn&rsquo;t have time to think about margins &mdash; he was too busy doing everyone else&rsquo;s job.</p>
+        <p>The team started handling quoting, onboarding, and materials ordering on their own. Not because they got new training &mdash; because someone finally showed them they were capable of owning it.</p>
+        <p class="result">Four months from midnight invoicing to team-driven operations. Higher prices. Customers still said yes. The owner got his evenings back.</p>
       </div>
+
       <div class="proof-story">
-        <p>A service company owner told me, &ldquo;I feel like I&rsquo;m babysitting adults.&rdquo; His team wasn&rsquo;t lazy. They just didn&rsquo;t know what they owned. The vision was in his head and nowhere else.</p>
-        <p class="result">One conversation. One handoff. His team started driving without being pushed. Same team. Different leverage.</p>
+        <h3>The Manufacturer</h3>
+        <p>Zero e-commerce. Wholesale only. No website, no direct-to-consumer capability. The owner knew there was a market but couldn&rsquo;t build it alone &mdash; and didn&rsquo;t want to create dependency on an outside consultant.</p>
+        <p>Tim captured the owner&rsquo;s vision, built the team&rsquo;s capability to run it, stayed until the new way was normal, and stepped away.</p>
+        <p class="result">$400K by year two. $1M annually by year four. The team has run it independently for ten years. No consultant dependency. No babysitting. Just ownership.</p>
       </div>
+
     </div>
+  </div>
+</section>
+
+<!-- WHO THIS IS NOT FOR -->
+<section class="not-for-you">
+  <div class="container">
+    <h2>Who This Is NOT For</h2>
+    <ul class="not-for-list">
+      <li>You&rsquo;ve already decided to replace your team (this tool upgrades the team you have)</li>
+      <li>You want a 12-week course with modules and certifications</li>
+      <li>You&rsquo;re looking for accountability scripts to hold people&rsquo;s feet to the fire</li>
+      <li>You&rsquo;re a solo operation with no team to hand off to</li>
+    </ul>
+
+    <p class="is-for-heading">This IS for you if&hellip;</p>
+    <ul class="is-for-list">
+      <li>You have 5&ndash;25 employees and you&rsquo;re the bottleneck</li>
+      <li>You love your team &mdash; you just can&rsquo;t figure out why they won&rsquo;t drive</li>
+      <li>You know the answer isn&rsquo;t more pressure &mdash; it&rsquo;s something else</li>
+      <li>You want to use this Monday &mdash; not &ldquo;someday&rdquo;</li>
+    </ul>
   </div>
 </section>
 
@@ -724,7 +947,9 @@
 <section class="about">
   <div class="container">
     <h2>About Tim</h2>
-    <p>I&rsquo;ve spent 20 years helping teams execute &mdash; from rock quarry crews who wanted to fix computers with a hammer to high-growth companies stuck at the founder bottleneck. Now I help business owners stop pushing every outcome and build teams that drive results on their own. The Ownership Handoff is how it starts. One page, one conversation, and your team starts moving without you holding every rope.</p>
+    <p>I&rsquo;ve spent 20 years helping teams execute &mdash; from rock quarry crews who wanted to fix computers with a hammer to high-growth companies stuck at the founder bottleneck. The Ownership Handoff was born inside those businesses, not in a classroom. Every section of this tool was tested by operators who didn&rsquo;t have time for theory.</p>
+    <p>My approach is different from most consultants: I don&rsquo;t install a system and leave. I stay for six weeks &mdash; long enough to make sure the new way becomes &ldquo;just how we do things.&rdquo; The Ownership Handoff is the starting point of that process. It&rsquo;s the first tool I hand every client because it creates the shift everything else builds on.</p>
+    <p>Every owner I&rsquo;ve worked with has the same exhausted look in the first meeting. They love their team. They love their business. They just can&rsquo;t understand why everything still depends on them. You&rsquo;re not the problem &mdash; you&rsquo;re the bottleneck. And there&rsquo;s a tool for that.</p>
   </div>
 </section>
 
@@ -742,8 +967,8 @@
     </ul>
     <div class="offer-price">One-time: <strong>$37</strong></div>
     <p class="offer-delivery">Less than the lunch where you complain about your team. Press play in Apple Podcasts, Spotify, or the Hiro app. Done in 20 minutes.</p>
-    <a href="checkout.html" class="cta-btn">Get the Tool</a>
-    <p class="guarantee">If this doesn&rsquo;t change how you lead on Monday, email me. &mdash; Tim</p>
+    <a href="checkout.html" class="cta-btn">Get the Ownership Handoff &mdash; $37</a>
+    <p class="guarantee">If this doesn&rsquo;t change how you lead on Monday, just email for a full refund. No forms. No hoops. (Email&rsquo;s on the guide.)</p>
   </div>
 </section>
 
@@ -771,6 +996,26 @@
       <h3>I&rsquo;ve tried accountability systems. How is this different?</h3>
       <p>That&rsquo;s not an accountability problem &mdash; it&rsquo;s a capability problem. Most systems add more pressure, more check-ins, more consequences. This tool transfers ownership so your team drives results because they CAN &mdash; not because they&rsquo;re being watched. Nobody gets squeezed. Everybody gets upgraded.</p>
     </div>
+
+    <div class="faq-item">
+      <h3>What if my team IS the problem?</h3>
+      <p>In 20 years, the team has almost never been the problem. The problem is usually three things: the vision is trapped in the owner&rsquo;s head, nobody broke the work into steps the team can walk, and the team has never had the experience of driving something and succeeding. This tool fixes all three in one conversation. If you go through it and genuinely discover you have the wrong people &mdash; at least now you&rsquo;ll know for certain instead of guessing.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Does this work for remote teams?</h3>
+      <p>Yes. The Ownership Handoff is about transferring clarity and ownership &mdash; that works whether your team is across the hall or across the country. The Monday handoff conversation works on Zoom the same way it works in person.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>I have 50+ employees. Is this still relevant?</h3>
+      <p>The tool is designed for owner-operators with 5&ndash;25 employees, but the framework scales. If you lead a team or department of any size and you&rsquo;re the bottleneck, the Ownership Handoff will show you what to hand off and how to do it.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What&rsquo;s a private podcast?</h3>
+      <p>It&rsquo;s a podcast feed that only you can access. After purchase, you get a unique link that adds the episodes to your regular podcast app &mdash; Apple Podcasts, Spotify, or the Hiro app. Listen on your commute, at your desk, or while you fill out the tool.</p>
+    </div>
   </div>
 </section>
 
@@ -778,9 +1023,14 @@
 <footer class="footer">
   <div class="container">
     <p style="margin-bottom: 8px; font-style: italic;">Driven by team, not pushed by the boss.</p>
-    <p>&copy; 2026 Driven by Team&trade; &nbsp;|&nbsp; <a href="/">Home</a> &nbsp;|&nbsp; <a href="#">Terms</a> &nbsp;|&nbsp; <a href="#">Privacy</a> &nbsp;|&nbsp; <a href="mailto:tim@timheeter.com">Contact</a></p>
+    <p>&copy; 2026 Driven by Team&trade; &nbsp;|&nbsp; <a href="/">Home</a> &nbsp;|&nbsp; <a href="#">Terms</a> &nbsp;|&nbsp; <a href="#">Privacy</a> &nbsp;|&nbsp; <a href="mailto:tim@drivenbyteam.com">Contact</a></p>
   </div>
 </footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta">
+  <a href="checkout.html">Get the Ownership Handoff &mdash; $37</a>
+</div>
 
 </body>
 </html>
