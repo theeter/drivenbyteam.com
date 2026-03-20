@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ownership Handoff — $1 | Driven by Team™</title>
+<style>
+  :root {
+    --primary: #1B2A4A;
+    --accent: #E8872B;
+    --accent-hover: #D47620;
+    --light: #F7F5F2;
+    --text: #2D2D2D;
+    --text-light: #5A5A5A;
+    --white: #FFFFFF;
+    --border: #E0DCD7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+  /* HERO */
+  .hero {
+    background: var(--primary);
+    color: var(--white);
+    padding: 64px 24px 56px;
+    text-align: center;
+  }
+  .hero .container { max-width: 640px; }
+  .hero-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 6vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,0.8);
+    max-width: 520px;
+    margin: 0 auto 32px;
+    line-height: 1.5;
+  }
+  .hero-price {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 16px;
+  }
+  .hero-price strong {
+    font-size: 36px;
+    color: var(--white);
+  }
+  .hero-price .original {
+    text-decoration: line-through;
+    color: rgba(255,255,255,0.4);
+    font-size: 18px;
+    margin-right: 8px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 700;
+    padding: 16px 48px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+    border: none;
+    cursor: pointer;
+  }
+  .cta-btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+  .cta-btn:active { transform: translateY(0); }
+  .cta-small { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 12px; }
+
+  /* RECOGNITION */
+  .recognition {
+    background: var(--light);
+    padding: 48px 24px;
+  }
+  .recognition h2 {
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 28px;
+    color: var(--primary);
+  }
+  .pain-list {
+    list-style: none;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  .pain-list li {
+    font-size: 17px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    padding-left: 32px;
+    position: relative;
+    color: var(--text);
+  }
+  .pain-list li:last-child { border-bottom: none; }
+  .pain-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .recognition-closer {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  /* WHAT YOU GET */
+  .what-you-get {
+    padding: 48px 24px;
+  }
+  .what-you-get h2 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 12px;
+    color: var(--primary);
+  }
+  .what-you-get .subtitle {
+    text-align: center;
+    font-size: 17px;
+    color: var(--text-light);
+    margin-bottom: 36px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tool-preview {
+    background: var(--light);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 32px;
+    margin-bottom: 24px;
+  }
+  .tool-preview h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 4px;
+  }
+  .tool-preview .tool-tag {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  .tool-sections {
+    list-style: none;
+  }
+  .tool-sections li {
+    padding: 10px 0;
+    font-size: 15px;
+    color: var(--text-light);
+    border-bottom: 1px solid var(--border);
+  }
+  .tool-sections li:last-child { border-bottom: none; }
+  .tool-sections strong {
+    color: var(--primary);
+    display: block;
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+
+  /* PDF PREVIEW */
+  .pdf-preview-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 36px;
+  }
+  .pdf-preview {
+    width: 340px;
+    background: var(--white);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 28px 24px 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
+    position: relative;
+    opacity: 0.88;
+  }
+  .pdf-preview::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(transparent, rgba(255,255,255,0.95));
+    pointer-events: none;
+  }
+  .pdf-header {
+    text-align: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--primary);
+  }
+  .pdf-header .pdf-brand {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .pdf-header h4 {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+  .pdf-header .pdf-sub {
+    font-size: 8px;
+    color: var(--text-light);
+  }
+  .pdf-section {
+    margin-bottom: 14px;
+  }
+  .pdf-section-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .pdf-section-num {
+    background: var(--accent);
+    color: white;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: 800;
+  }
+  .pdf-field {
+    border-bottom: 1px solid #ddd;
+    height: 18px;
+    margin-bottom: 6px;
+    position: relative;
+  }
+  .pdf-field.filled {
+    border-bottom-color: #bbb;
+  }
+  .pdf-field.filled::after {
+    content: attr(data-text);
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    font-size: 9px;
+    color: #999;
+    font-style: italic;
+    font-family: 'Georgia', serif;
+  }
+  .pdf-field-label {
+    font-size: 7px;
+    color: #aaa;
+    margin-bottom: 2px;
+  }
+  .pdf-caption {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 16px;
+    font-style: italic;
+  }
+
+  /* HOW IT WORKS */
+  .how-it-works {
+    background: var(--light);
+    padding: 48px 24px;
+  }
+  .how-it-works h2 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 36px;
+    color: var(--primary);
+  }
+  .steps {
+    list-style: none;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .steps li {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 24px;
+    align-items: flex-start;
+  }
+  .step-num {
+    background: var(--accent);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 800;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-text h4 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .step-text p {
+    font-size: 15px;
+    color: var(--text-light);
+  }
+
+  /* CONTRAST TABLE */
+  .contrast {
+    padding: 48px 24px;
+  }
+  .contrast h2 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 28px;
+    color: var(--primary);
+  }
+  .contrast-table {
+    max-width: 580px;
+    margin: 0 auto;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .contrast-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .contrast-header div {
+    padding: 14px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  .contrast-header .old-col {
+    background: #EDE9E4;
+    color: var(--text-light);
+  }
+  .contrast-header .new-col {
+    background: var(--primary);
+    color: var(--white);
+  }
+  .contrast-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--border);
+  }
+  .contrast-row div {
+    padding: 14px 20px;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .contrast-row .old-val {
+    color: var(--text-light);
+    background: var(--white);
+  }
+  .contrast-row .new-val {
+    color: var(--primary);
+    background: rgba(27, 42, 74, 0.04);
+    font-weight: 600;
+  }
+
+  /* PROOF */
+  .proof {
+    background: var(--light);
+    padding: 48px 24px;
+  }
+  .proof h2 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 28px;
+    color: var(--primary);
+  }
+  .proof-stories {
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  .proof-story {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .proof-story:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  .proof-story p {
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .proof-story .result {
+    font-weight: 700;
+    color: var(--primary);
+    margin-top: 8px;
+    font-size: 17px;
+  }
+
+  /* OFFER */
+  .offer {
+    padding: 56px 24px;
+    text-align: center;
+    background: var(--primary);
+    color: var(--white);
+  }
+  .offer-badge {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .offer h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 24px;
+  }
+  .offer-includes {
+    list-style: none;
+    max-width: 420px;
+    margin: 0 auto 24px;
+    text-align: left;
+  }
+  .offer-includes li {
+    font-size: 16px;
+    padding: 8px 0;
+    padding-left: 28px;
+    position: relative;
+    color: rgba(255,255,255,0.85);
+  }
+  .offer-includes li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .offer-price {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 8px;
+  }
+  .offer-price strong {
+    font-size: 42px;
+    color: var(--white);
+  }
+  .offer-price .original {
+    text-decoration: line-through;
+    color: rgba(255,255,255,0.35);
+    font-size: 20px;
+    margin-right: 8px;
+  }
+  .offer-delivery {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 24px;
+  }
+  .guarantee {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 20px;
+    font-style: italic;
+  }
+
+  /* FAQ */
+  .faq {
+    padding: 48px 24px;
+  }
+  .faq h2 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 28px;
+    color: var(--primary);
+  }
+  .faq-item {
+    max-width: 580px;
+    margin: 0 auto 20px;
+  }
+  .faq-item h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 6px;
+  }
+  .faq-item p {
+    font-size: 15px;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--light);
+    padding: 32px 24px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-light);
+  }
+  .footer a { color: var(--accent); text-decoration: none; }
+
+  /* MOBILE TWEAKS */
+  @media (max-width: 480px) {
+    .hero { padding: 48px 20px 40px; }
+    .cta-btn { width: 100%; text-align: center; padding: 18px 24px; }
+    .tool-preview { padding: 24px 20px; }
+  }
+</style>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XN2XG291P8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XN2XG291P8');
+</script>
+
+<!-- Facebook Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2945427472338494');
+  fbq('track', 'PageView');
+  fbq('track', 'ViewContent', {
+    content_name: 'The Ownership Handoff - $1 Offer',
+    content_category: 'Landing Page',
+    value: 1.00,
+    currency: 'USD'
+  });
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2945427472338494&ev=PageView&noscript=1"/></noscript>
+
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">A Driven by Team™ Tool</div>
+    <h1>Stop Babysitting <span>Your Team</span></h1>
+    <p class="hero-sub">One page. One conversation. Your team starts driving results without you pushing every outcome.</p>
+    <div class="hero-price"><span class="original">$37</span> <strong>$1</strong></div>
+    <a href="#checkout" class="cta-btn">Get the Tool for $1</a>
+    <p class="cta-small">Instant PDF download. Use it Monday morning.</p>
+  </div>
+</section>
+
+<!-- RECOGNITION -->
+<section class="recognition">
+  <div class="container">
+    <h2>Sound familiar?</h2>
+    <ul class="pain-list">
+      <li>Your team waits for you to tell them what to do next</li>
+      <li>You hired smart people but you're still making every decision</li>
+      <li>You can't take a day off without everything falling apart</li>
+      <li>You're exhausted from being the only one who pushes for results</li>
+      <li>"Accountability conversations" feel like babysitting adults</li>
+      <li>You've tried delegating. It lasted about a week.</li>
+    </ul>
+    <p class="recognition-closer">Your team isn't the problem. Nobody's holding them capable.</p>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="what-you-get">
+  <div class="container">
+    <h2>The Ownership Handoff</h2>
+    <p class="subtitle">A one-page fill-in tool that transfers ownership from your head to your team's hands.</p>
+
+    <!-- PDF Preview Image -->
+    <div class="pdf-preview-wrapper">
+      <div>
+        <div class="pdf-preview">
+          <div class="pdf-header">
+            <div class="pdf-brand">Driven by Team™</div>
+            <h4>The Ownership Handoff</h4>
+            <div class="pdf-sub">Hold them capable, not accountable.</div>
+          </div>
+
+          <div class="pdf-section">
+            <div class="pdf-section-label"><span class="pdf-section-num">1</span> What Needs an Owner</div>
+            <div class="pdf-field-label">Outcome I'm currently pushing:</div>
+            <div class="pdf-field filled" data-text="Job scheduling — I'm the only one who knows what's on track"></div>
+            <div class="pdf-field-label">Why this should be someone else's:</div>
+            <div class="pdf-field filled" data-text="Crew leads are closer to the work and can own this"></div>
+            <div class="pdf-field"></div>
+          </div>
+
+          <div class="pdf-section">
+            <div class="pdf-section-label"><span class="pdf-section-num">2</span> Match the Right Person</div>
+            <div class="pdf-field-label">Team member:</div>
+            <div class="pdf-field filled" data-text="Dave — 8 years experience, knows every crew"></div>
+            <div class="pdf-field-label">What ownership looks like:</div>
+            <div class="pdf-field"></div>
+            <div class="pdf-field"></div>
+          </div>
+
+          <div class="pdf-section">
+            <div class="pdf-section-label"><span class="pdf-section-num">3</span> The Monday Handoff</div>
+            <div class="pdf-field-label">What I'll say:</div>
+            <div class="pdf-field"></div>
+            <div class="pdf-field"></div>
+            <div class="pdf-field"></div>
+          </div>
+        </div>
+        <p class="pdf-caption">One page. Fill it out. Use it Monday.</p>
+      </div>
+    </div>
+
+    <div class="tool-preview">
+      <h3>What's on the page</h3>
+      <div class="tool-tag">One-Page Tool (PDF Download)</div>
+      <ul class="tool-sections">
+        <li>
+          <strong>Section 1: What Needs an Owner</strong>
+          Identify the 3-5 outcomes you're currently pushing that should be someone else's to drive.
+        </li>
+        <li>
+          <strong>Section 2: Match the Right Person</strong>
+          Map each outcome to the team member who's capable of owning it — and what "ownership" actually looks like.
+        </li>
+        <li>
+          <strong>Section 3: The Monday Handoff</strong>
+          Script exactly what to say to transfer ownership so your team drives it — without you hovering.
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
+  <div class="container">
+    <h2>How It Works</h2>
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <h4>Download the PDF</h4>
+          <p>Instant access. Print it or fill it in digitally.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <h4>Fill Out the Three Sections</h4>
+          <p>20 minutes. Identify what needs an owner, match the right person, script the conversation.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <h4>Have the Conversation Monday</h4>
+          <p>Walk in with the handoff ready. Transfer ownership. Stop pushing.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTRAST -->
+<section class="contrast">
+  <div class="container">
+    <h2>Two Ways to Lead. Pick One.</h2>
+    <div class="contrast-table">
+      <div class="contrast-header">
+        <div class="old-col">Without the Handoff</div>
+        <div class="new-col">With the Handoff</div>
+      </div>
+      <div class="contrast-row">
+        <div class="old-val">You push every outcome</div>
+        <div class="new-val">Your team owns outcomes</div>
+      </div>
+      <div class="contrast-row">
+        <div class="old-val">"Did you do this yet?"</div>
+        <div class="new-val">"Here's my update"</div>
+      </div>
+      <div class="contrast-row">
+        <div class="old-val">Accountability talks</div>
+        <div class="new-val">Capability transfer</div>
+      </div>
+      <div class="contrast-row">
+        <div class="old-val">You = the bottleneck</div>
+        <div class="new-val">You = the strategist</div>
+      </div>
+      <div class="contrast-row">
+        <div class="old-val">Dinner gets cold</div>
+        <div class="new-val">Drive home for dinner</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof">
+  <div class="container">
+    <h2>This Is What It Looks Like</h2>
+    <div class="proof-stories">
+      <div class="proof-story">
+        <p>A construction company owner was the only person who knew which jobs were on schedule. 50+ calls every morning before 9 AM. He handed ownership to three crew leads using The Ownership Handoff.</p>
+        <p class="result">His phone stopped ringing at dinner. Same crew. Same jobs. Different leverage.</p>
+      </div>
+      <div class="proof-story">
+        <p>Sarah spent 15 hours a week chasing invoices. She was hired for supplier negotiations. Nobody had ever told her the invoices weren't her job anymore.</p>
+        <p class="result">One conversation. 15 hours became 20 minutes. She walked out different — because someone held her capable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER + EMBEDDED CHECKOUT -->
+<section class="offer" id="checkout">
+  <div class="container">
+    <div class="offer-badge">Limited Offer</div>
+    <h2>Get the Ownership Handoff</h2>
+    <p style="font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 24px; font-style: italic;">Hold them capable, not accountable.</p>
+    <ul class="offer-includes">
+      <li>The Ownership Handoff — one-page tool (PDF)</li>
+      <li>Three sections: identify, match, script the conversation</li>
+      <li>Completed handoff ready to use Monday morning</li>
+      <li>Keep it forever — use it for every new team member</li>
+    </ul>
+    <div class="offer-price"><span class="original">$37</span> <strong>$1</strong></div>
+    <p class="offer-delivery">Instant PDF download. 20 minutes to complete. Use it Monday.</p>
+
+    <!-- SamCart Embedded Checkout -->
+    <div style="max-width: 500px; margin: 24px auto 0;">
+      <script defer="defer" src="https://static.samcart.com/checkouts/sc-checkout.js"></script>
+      <sc-checkout product="the-ownership-handoff-1" subdomain="drivenbyteam" coupon="" ></sc-checkout>
+    </div>
+
+    <p class="guarantee">One dollar. If it doesn't change how you lead on Monday, email me. &mdash; Tim</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <h2>Questions</h2>
+
+    <div class="faq-item">
+      <h3>Why is this only $1?</h3>
+      <p>I want this tool in as many hands as possible. The Ownership Handoff works — and I know that once you use it, you'll want to go deeper. Think of this as a handshake.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Is this a course?</h3>
+      <p>No. It's one page. You fill it out in 20 minutes and bring it to work Monday. No videos. No modules. Just a tool that does the work.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Who is this for?</h3>
+      <p>Business owners, managers, and team leaders who are tired of pushing every outcome. If you've ever thought "I feel like I'm babysitting adults" — this is for you.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>I've tried delegating before. How is this different?</h3>
+      <p>That's not a delegation problem — it's a capability problem. This tool transfers ownership so your team drives results because they CAN, not because they're being watched.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p style="margin-bottom: 8px; font-style: italic;">Driven by team, not pushed by the boss.</p>
+    <p>&copy; 2026 Driven by Team™ &nbsp;|&nbsp; <a href="terms.html">Terms</a> &nbsp;|&nbsp; <a href="terms.html">Privacy</a> &nbsp;|&nbsp; <a href="mailto:tim@drivenbyteam.com">Contact</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
