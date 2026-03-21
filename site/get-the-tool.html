@@ -55,7 +55,7 @@
   .hero h1 span { color: var(--accent); }
   .hero-sub {
     font-size: 18px;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.85);
     max-width: 520px;
     margin: 0 auto 32px;
     line-height: 1.5;
@@ -132,6 +132,92 @@
     font-size: 18px;
     font-weight: 600;
     color: var(--primary);
+  }
+
+  /* BELIEF SHIFT */
+  .belief-shift {
+    padding: 56px 24px;
+  }
+  .belief-shift .container { max-width: 620px; }
+  .belief-shift h2 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 24px;
+    color: var(--primary);
+  }
+  .belief-shift p {
+    font-size: 17px;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .belief-shift .closer {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary);
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 0;
+  }
+
+  /* CONTRAST TABLE */
+  .contrast {
+    padding: 48px 24px;
+    background: var(--light);
+  }
+  .contrast h2 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 28px;
+    color: var(--primary);
+  }
+  .contrast-table {
+    max-width: 580px;
+    margin: 0 auto;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .contrast-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .contrast-header div {
+    padding: 14px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  .contrast-header .old-col {
+    background: #EDE9E4;
+    color: var(--text-light);
+  }
+  .contrast-header .new-col {
+    background: var(--primary);
+    color: var(--white);
+  }
+  .contrast-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--border);
+  }
+  .contrast-row div {
+    padding: 14px 20px;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .contrast-row .old-val {
+    color: var(--text-light);
+    background: var(--white);
+  }
+  .contrast-row .new-val {
+    color: var(--primary);
+    background: rgba(27, 42, 74, 0.04);
+    font-weight: 600;
   }
 
   /* WHAT YOU GET */
@@ -348,67 +434,8 @@
     color: var(--text-light);
   }
 
-  /* CONTRAST TABLE */
-  .contrast {
-    padding: 48px 24px;
-  }
-  .contrast h2 {
-    font-size: 28px;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 28px;
-    color: var(--primary);
-  }
-  .contrast-table {
-    max-width: 580px;
-    margin: 0 auto;
-    border: 2px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  .contrast-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .contrast-header div {
-    padding: 14px 20px;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: center;
-  }
-  .contrast-header .old-col {
-    background: #EDE9E4;
-    color: var(--text-light);
-  }
-  .contrast-header .new-col {
-    background: var(--primary);
-    color: var(--white);
-  }
-  .contrast-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-top: 1px solid var(--border);
-  }
-  .contrast-row div {
-    padding: 14px 20px;
-    font-size: 15px;
-    line-height: 1.4;
-  }
-  .contrast-row .old-val {
-    color: var(--text-light);
-    background: var(--white);
-  }
-  .contrast-row .new-val {
-    color: var(--primary);
-    background: rgba(27, 42, 74, 0.04);
-    font-weight: 600;
-  }
-
   /* PROOF */
   .proof {
-    background: var(--light);
     padding: 48px 24px;
   }
   .proof h2 {
@@ -444,12 +471,32 @@
     font-size: 17px;
   }
 
+  /* TIM STORY */
+  .tim-story {
+    background: var(--primary);
+    color: var(--white);
+    padding: 48px 24px;
+  }
+  .tim-story .container { max-width: 580px; }
+  .tim-story p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 16px;
+  }
+  .tim-story p:last-child { margin-bottom: 0; }
+  .tim-story .sig {
+    font-weight: 700;
+    color: var(--white);
+    margin-top: 8px;
+    font-size: 16px;
+  }
+
   /* OFFER */
   .offer {
     padding: 56px 24px;
     text-align: center;
-    background: var(--primary);
-    color: var(--white);
+    background: var(--light);
   }
   .offer-badge {
     font-size: 12px;
@@ -463,10 +510,11 @@
     font-size: 32px;
     font-weight: 800;
     margin-bottom: 24px;
+    color: var(--primary);
   }
   .offer-includes {
     list-style: none;
-    max-width: 420px;
+    max-width: 460px;
     margin: 0 auto 24px;
     text-align: left;
   }
@@ -475,7 +523,7 @@
     padding: 8px 0;
     padding-left: 28px;
     position: relative;
-    color: rgba(255,255,255,0.85);
+    color: var(--text);
   }
   .offer-includes li::before {
     content: '✓';
@@ -484,29 +532,35 @@
     color: var(--accent);
     font-weight: 700;
   }
+  .offer-anchor {
+    font-size: 15px;
+    color: var(--text-light);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
   .offer-price {
     font-size: 14px;
-    color: rgba(255,255,255,0.5);
+    color: var(--text-light);
     margin-bottom: 8px;
   }
   .offer-price strong {
     font-size: 42px;
-    color: var(--white);
+    color: var(--primary);
   }
   .offer-price .original {
     text-decoration: line-through;
-    color: rgba(255,255,255,0.35);
+    color: var(--text-light);
     font-size: 20px;
     margin-right: 8px;
   }
   .offer-delivery {
     font-size: 14px;
-    color: rgba(255,255,255,0.6);
+    color: var(--text-light);
     margin-bottom: 24px;
   }
   .guarantee {
     font-size: 14px;
-    color: rgba(255,255,255,0.5);
+    color: var(--text-light);
     margin-top: 20px;
     font-style: italic;
   }
@@ -595,7 +649,7 @@
   <div class="container">
     <div class="hero-badge">A Driven by Team™ Tool</div>
     <h1>Stop Babysitting <span>Your Team</span></h1>
-    <p class="hero-sub">One page. One conversation. Your team starts driving results without you pushing every outcome.</p>
+    <p class="hero-sub">The 20-minute tool that got a concrete contractor home for dinner — with his phone off. Same crew. Same jobs. Different leverage.</p>
     <div class="hero-price"><span class="original">$37</span> <strong>$1</strong></div>
     <a href="#checkout" class="cta-btn">Get the Tool for $1</a>
     <p class="cta-small">Instant PDF download. Use it Monday morning.</p>
@@ -614,7 +668,59 @@
       <li>"Accountability conversations" feel like babysitting adults</li>
       <li>You've tried delegating. It lasted about a week.</li>
     </ul>
-    <p class="recognition-closer">Your team isn't the problem. Nobody's holding them capable.</p>
+    <p class="recognition-closer">It's not your team. And it's not you. It's the approach.</p>
+  </div>
+</section>
+
+<!-- BELIEF SHIFT -->
+<section class="belief-shift">
+  <div class="container">
+    <h2>It's Not an Accountability Problem.<br>It's a Capability Problem.</h2>
+
+    <p>Here's what I've watched happen in every business I've worked with over the last 20 years:</p>
+
+    <p>The owner tries to delegate. It doesn't stick. So they hold the team "accountable." More check-ins. More follow-ups. More conversations that feel like babysitting.</p>
+
+    <p>But accountability doesn't build ownership. It builds compliance. Your team does the minimum to avoid the conversation — then waits for the next set of instructions.</p>
+
+    <p>The problem was never their work ethic. It's that nobody transferred <strong>ownership</strong> to them. Nobody sat down and said: "This is yours now. Here's what it looks like when you own it. I trust you to drive it."</p>
+
+    <p>That's what The Ownership Handoff does. Not more accountability. <strong>Capability transfer.</strong></p>
+
+    <p class="closer">Hold them capable, not accountable.</p>
+  </div>
+</section>
+
+<!-- CONTRAST — moved up per Brown's feedback -->
+<section class="contrast">
+  <div class="container">
+    <h2>Two Ways to Lead. Pick One.</h2>
+    <div class="contrast-table">
+      <div class="contrast-header">
+        <div class="old-col">Accountability</div>
+        <div class="new-col">Capability</div>
+      </div>
+      <div class="contrast-row">
+        <div class="old-val">You push every outcome</div>
+        <div class="new-val">Your team owns outcomes</div>
+      </div>
+      <div class="contrast-row">
+        <div class="old-val">"Did you do this yet?"</div>
+        <div class="new-val">"Here's my update"</div>
+      </div>
+      <div class="contrast-row">
+        <div class="old-val">Checking up</div>
+        <div class="new-val">Handing off</div>
+      </div>
+      <div class="contrast-row">
+        <div class="old-val">You = the bottleneck</div>
+        <div class="new-val">You = the strategist</div>
+      </div>
+      <div class="contrast-row">
+        <div class="old-val">Dinner gets cold</div>
+        <div class="new-val">Drive home for dinner</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -678,7 +784,7 @@
         </li>
         <li>
           <strong>Section 3: The Monday Handoff</strong>
-          Script exactly what to say to transfer ownership so your team drives it — without you hovering.
+          The word-for-word script for the conversation that transfers ownership — so your team drives it without you hovering.
         </li>
       </ul>
     </div>
@@ -715,70 +821,55 @@
   </div>
 </section>
 
-<!-- CONTRAST -->
-<section class="contrast">
+<!-- PROOF -->
+<section class="proof">
   <div class="container">
-    <h2>Two Ways to Lead. Pick One.</h2>
-    <div class="contrast-table">
-      <div class="contrast-header">
-        <div class="old-col">Without the Handoff</div>
-        <div class="new-col">With the Handoff</div>
+    <h2>I've Watched This Work</h2>
+    <div class="proof-stories">
+      <div class="proof-story">
+        <p>I worked with a concrete contractor in Ohio — 47 employees, been running the company 12 years. He was the only person who knew which jobs were on schedule. 50+ calls every morning before 9 AM. We used The Ownership Handoff to transfer scheduling to three crew leads who'd been with him for years.</p>
+        <p class="result">His phone stopped ringing at dinner. Same crew. Same jobs. Different leverage.</p>
       </div>
-      <div class="contrast-row">
-        <div class="old-val">You push every outcome</div>
-        <div class="new-val">Your team owns outcomes</div>
-      </div>
-      <div class="contrast-row">
-        <div class="old-val">"Did you do this yet?"</div>
-        <div class="new-val">"Here's my update"</div>
-      </div>
-      <div class="contrast-row">
-        <div class="old-val">Accountability talks</div>
-        <div class="new-val">Capability transfer</div>
-      </div>
-      <div class="contrast-row">
-        <div class="old-val">You = the bottleneck</div>
-        <div class="new-val">You = the strategist</div>
-      </div>
-      <div class="contrast-row">
-        <div class="old-val">Dinner gets cold</div>
-        <div class="new-val">Drive home for dinner</div>
+      <div class="proof-story">
+        <p>I built this for a service company where Sarah — their best employee — was spending 15 hours a week chasing invoices. She was hired for supplier negotiations. Nobody had ever told her the invoices weren't her job anymore. One conversation. One handoff.</p>
+        <p class="result">15 hours became 20 minutes. She walked out different — because someone held her capable.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROOF -->
-<section class="proof">
+<!-- TIM'S STORY — honest toolmaker origin -->
+<section class="tim-story">
   <div class="container">
-    <h2>This Is What It Looks Like</h2>
-    <div class="proof-stories">
-      <div class="proof-story">
-        <p>A construction company owner was the only person who knew which jobs were on schedule. 50+ calls every morning before 9 AM. He handed ownership to three crew leads using The Ownership Handoff.</p>
-        <p class="result">His phone stopped ringing at dinner. Same crew. Same jobs. Different leverage.</p>
-      </div>
-      <div class="proof-story">
-        <p>Sarah spent 15 hours a week chasing invoices. She was hired for supplier negotiations. Nobody had ever told her the invoices weren't her job anymore.</p>
-        <p class="result">One conversation. 15 hours became 20 minutes. She walked out different — because someone held her capable.</p>
-      </div>
-    </div>
+    <p>I need to tell you something. I didn't build this tool from running a 50-person company. I built it from being in the room with people who do.</p>
+
+    <p>For 20 years, I've been the implementer — the guy owner-operators call when their team is stuck and they can't figure out why. I've sat across the table from construction company owners, service business managers, and trades operators, building tools and systems that actually change how their teams work.</p>
+
+    <p>The Ownership Handoff is the distilled version of what I watched work — across dozens of businesses, dozens of industries, dozens of frustrated owners who just wanted their team to drive without being pushed.</p>
+
+    <p>Then I became a manager myself. Got my first direct reports. And I reached for this tool — the same one I'd been building for other people. It worked for me too.</p>
+
+    <p>That's why I'm selling it for a dollar. I've seen it work too many times to keep it in a consulting engagement.</p>
+
+    <p class="sig">— Tim</p>
   </div>
 </section>
 
 <!-- OFFER + EMBEDDED CHECKOUT -->
 <section class="offer" id="checkout">
   <div class="container">
-    <div class="offer-badge">Limited Offer</div>
+    <div class="offer-badge">You have a team meeting Monday</div>
     <h2>Get the Ownership Handoff</h2>
-    <p style="font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 24px; font-style: italic;">Hold them capable, not accountable.</p>
+    <p style="font-size: 16px; color: var(--text-light); margin-bottom: 24px; font-style: italic;">Hold them capable, not accountable.</p>
     <ul class="offer-includes">
-      <li>The Ownership Handoff — one-page tool (PDF)</li>
-      <li>Three sections: identify, match, script the conversation</li>
-      <li>Completed handoff ready to use Monday morning</li>
-      <li>Keep it forever — use it for every new team member</li>
+      <li>The Ownership Handoff — one-page fill-in tool (PDF)</li>
+      <li>The word-for-word Monday morning handoff script</li>
+      <li>The capability-matching framework — pick the RIGHT person, not just the available one</li>
+      <li>Reusable — use it for every new team member, every new project, forever</li>
     </ul>
+    <p class="offer-anchor">I sold this at live workshops for $37. Over 200 owner-operators have used it.</p>
     <div class="offer-price"><span class="original">$37</span> <strong>$1</strong></div>
-    <p class="offer-delivery">Instant PDF download. 20 minutes to complete. Use it Monday.</p>
+    <p class="offer-delivery">Instant PDF download. 20 minutes to complete. Bring it to work Monday.</p>
 
     <!-- SamCart Embedded Checkout -->
     <div style="max-width: 500px; margin: 24px auto 0;">
@@ -786,7 +877,7 @@
       <sc-checkout product="the-ownership-handoff-1" subdomain="drivenbyteam" coupon="" ></sc-checkout>
     </div>
 
-    <p class="guarantee">One dollar. If it doesn't change how you lead on Monday, email me. &mdash; Tim</p>
+    <p class="guarantee">One dollar. If it doesn't change how you lead on Monday, email me. — Tim</p>
   </div>
 </section>
 
@@ -797,7 +888,7 @@
 
     <div class="faq-item">
       <h3>Why is this only $1?</h3>
-      <p>I want this tool in as many hands as possible. The Ownership Handoff works — and I know that once you use it, you'll want to go deeper. Think of this as a handshake.</p>
+      <p>Because the tool only works if you USE it. A dollar means you have no excuse not to download it tonight and bring it to work Monday. I'd rather 1,000 people use it than 10 people pay full price and let it sit in a folder.</p>
     </div>
 
     <div class="faq-item">
@@ -812,7 +903,12 @@
 
     <div class="faq-item">
       <h3>I've tried delegating before. How is this different?</h3>
-      <p>That's not a delegation problem — it's a capability problem. This tool transfers ownership so your team drives results because they CAN, not because they're being watched.</p>
+      <p>Delegating without a tool is just assigning work and hoping. The Ownership Handoff transfers capability — it shows you how to match the right person, define what ownership looks like, and script the conversation. Your team drives because they CAN, not because they're being watched.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do you know this works?</h3>
+      <p>I spent 20 years building tools like this for owner-operators — then I used it myself when I started managing people. I've watched it work in construction, service businesses, trades, and tech teams. It works because it's simple enough to actually use.</p>
     </div>
   </div>
 </section>
